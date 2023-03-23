@@ -60,7 +60,7 @@ const RegistrosAdmin = () => {
                     redirect: 'follow'
                 };
 
-                const response = await fetch(`http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/obtener/registros/clientes?api_token=${auth.session.api_token}`, requestOptions);
+                const response = await fetch(`http://localhost:8080/obtener/registros/clientes?api_token=${auth.session.api_token}`, requestOptions);
 
                 const result = await response.json();
                 setUsuarios(result.data);
@@ -84,7 +84,7 @@ const RegistrosAdmin = () => {
     const handleClose = () => setOpen(false);
 
     // const handleEliminarUser = async (objectId) => {
-    //     const response = await fetch(`http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/eliminar/usuario/total/${objectId}`, {
+    //     const response = await fetch(`http://localhost:8080/eliminar/usuario/total/${objectId}`, {
     //         method: "DELETE"
     //     })
     //     if (response.ok) {
@@ -109,7 +109,7 @@ const RegistrosAdmin = () => {
             body: formdata,
             redirect: 'follow'
         };
-        const response = await fetch(`http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/eliminar/usuario/`, requestOptions)
+        const response = await fetch(`http://localhost:8080/eliminar/usuario/`, requestOptions)
         if (response.ok) {
             alert('Usuario eliminado correctamente')
             setUsuarios(usuarios.filter(usuario => usuario.objectId !== objectId))
@@ -131,7 +131,7 @@ const RegistrosAdmin = () => {
             body: formdata,
             redirect: 'follow'
         };
-        const response = await fetch(`http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/actualizar/password`, requestOptions)
+        const response = await fetch(`http://localhost:8080/actualizar/password`, requestOptions)
         if (selectedUser.password === "") {
             alert('El campo password no puede estar vacio')
             return;
@@ -165,7 +165,7 @@ const RegistrosAdmin = () => {
             body: formdata,
             redirect: 'follow'
         };
-        const response = await fetch("http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/editar/usuarios/", requestOptions)
+        const response = await fetch("http://localhost:8080/editar/usuarios/", requestOptions)
         if (selectedUser.documento) {
             formdata.append("documento", files);
         } else if (files === "") {
@@ -212,7 +212,7 @@ const RegistrosAdmin = () => {
             // headers: myHeaders,
             redirect: 'follow'
         };
-        const response = await fetch(`http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/stripe/obtener/subscription/?customer_email=${email}`, requestOptions);
+        const response = await fetch(`http://localhost:8080/stripe/obtener/subscription/?customer_email=${email}`, requestOptions);
         if (response.status === 401) {
             const action = {
                 type: types.logout,

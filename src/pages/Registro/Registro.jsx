@@ -126,7 +126,7 @@ const Registro = (props) => {
         body: formdata,
         redirect: 'follow',
       };
-      const response = await fetch("http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/users/", requestOptions)
+      const response = await fetch("http://localhost:8080/users/", requestOptions)
       const data = await response.json();
       console.log(data)
 

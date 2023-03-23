@@ -30,7 +30,7 @@ const PagoSubscripcion = () => {
           method: 'GET',
           redirect: 'follow'
         };
-        const response = await fetch(`http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/stripe/obtener/card/?id=${id}`, requestOptions)
+        const response = await fetch(`http://localhost:8080/stripe/obtener/card/?id=${id}`, requestOptions)
         const result = await response.json();
         setData(result);
         console.log(result);
@@ -49,7 +49,7 @@ const PagoSubscripcion = () => {
           method: 'GET',
           redirect: 'follow'
         };
-        const response = await fetch(`http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/stripe/obtener/plan/?interval=${interval}`, requestOptions);
+        const response = await fetch(`http://localhost:8080/stripe/obtener/plan/?interval=${interval}`, requestOptions);
         const result = await response.json();
         setPlan(result);
         console.log(result);
@@ -78,7 +78,7 @@ const PagoSubscripcion = () => {
       redirect: 'follow'
     };
 
-    const response = await fetch("http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/stripe/charge/subscription/", requestOptions);
+    const response = await fetch("http://localhost:8080/stripe/charge/subscription/", requestOptions);
     const result = await response.json();
     setSubscription(result);
     console.log(result);

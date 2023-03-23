@@ -27,7 +27,7 @@ const CancelarSuscripcion = () => {
                 // headers: myHeaders,
                 redirect: 'follow'
             };
-            const response = await fetch(`http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/stripe/obtener/subscription/?customer_email=${auth.session.email}`, requestOptions);
+            const response = await fetch(`http://localhost:8080/stripe/obtener/subscription/?customer_email=${auth.session.email}`, requestOptions);
             if (response.status === 401) {
                 const action = {
                     type: types.logout,
@@ -49,7 +49,7 @@ const CancelarSuscripcion = () => {
             redirect: 'follow'
         };
 
-        const response = await fetch(`http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/stripe/cancel/subscription/?email=${auth.session.email}&id=${dataSubscripcion?.allSubscription?.data[0]?.id}`, requestOptions)
+        const response = await fetch(`http://localhost:8080/stripe/cancel/subscription/?email=${auth.session.email}&id=${dataSubscripcion?.allSubscription?.data[0]?.id}`, requestOptions)
         const result = await response.json();
         console.log(result);
     }

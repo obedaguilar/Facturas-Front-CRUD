@@ -50,7 +50,7 @@ const FacturasAdmin = () => {
                 redirect: 'follow'
             };
 
-            const response = await fetch(`http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/stripe/obtener/subscriptionBD/?api_token=${auth.session.api_token}`, requestOptions);
+            const response = await fetch(`http://localhost:8080/stripe/obtener/subscriptionBD/?api_token=${auth.session.api_token}`, requestOptions);
             const data = await response.json();
             console.log(data.suscripcion);
             setSubscriptions(data.suscripcion);
@@ -86,7 +86,7 @@ const FacturasAdmin = () => {
                 redirect: 'follow'
             };
 
-            const response = await fetch("http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/insertar/facturas", requestOptions)
+            const response = await fetch("http://localhost:8080/insertar/facturas", requestOptions)
 
             const data = await response.json();
             console.log(data);
@@ -118,7 +118,7 @@ const FacturasAdmin = () => {
             // headers: myHeaders,
             redirect: 'follow'
         };
-        const response = await fetch(`http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/stripe/obtener/subscription/?customer_email=${email}`, requestOptions);
+        const response = await fetch(`http://localhost:8080/stripe/obtener/subscription/?customer_email=${email}`, requestOptions);
         if (response.status === 401) {
             const action = {
                 type: types.logout,

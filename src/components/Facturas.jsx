@@ -16,7 +16,7 @@ const Facturas = () => {
     //     useEffect(() => {
     //         //la primera es la declaracion de la funcion para que se mande a llamar
     //         const miApiUsuario = async () => {
-    //         const response = await fetch('http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/registro/clientes')
+    //         const response = await fetch('http://localhost:8080/registro/clientes')
     //         const result = await response.json();
     //         setData(result.data);
 
@@ -37,7 +37,7 @@ const Facturas = () => {
                     headers: myHeaders,
                     redirect: 'follow'
                 };
-                const response = await fetch(`http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/obtener/facturas/cliente/?objectId=${auth.session.objectId}&api_token=${auth.session.api_token}&user_invoice_objectId=${auth.session.objectId}`, requestOptions);
+                const response = await fetch(`http://localhost:8080/obtener/facturas/cliente/?objectId=${auth.session.objectId}&api_token=${auth.session.api_token}&user_invoice_objectId=${auth.session.objectId}`, requestOptions);
                 const result = await response.json();
                 setData(result.data);
                 console.log(result?.data);

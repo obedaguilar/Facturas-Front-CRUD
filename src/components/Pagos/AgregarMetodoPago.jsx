@@ -39,7 +39,7 @@ const AgregarMetodoPago = () => {
                     body: formdata,
                     redirect: 'follow'
                 };
-                const response = await fetch("http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/stripe/add/payment", requestOptions)
+                const response = await fetch("http://localhost:8080/stripe/add/payment", requestOptions)
                 const data = await response.json();
                 console.log(data);
                 if (data) {

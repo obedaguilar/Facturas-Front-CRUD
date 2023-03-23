@@ -42,7 +42,7 @@ const PerfilAdmin = () => {
             redirect: 'follow'
         };
 
-        const response = await fetch("http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/user/actualizar/", requestOptions)
+        const response = await fetch("http://localhost:8080/user/actualizar/", requestOptions)
 
         const data = await response.json()
         console.log(data)
@@ -62,7 +62,7 @@ const PerfilAdmin = () => {
                 redirect: 'follow'
             };
 
-            const response = await fetch(`http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/obtener/admin?api_token=${auth.session.api_token}&email=${auth.session.email}`, requestOptions);
+            const response = await fetch(`http://localhost:8080/obtener/admin?api_token=${auth.session.api_token}&email=${auth.session.email}`, requestOptions);
 
             if (response.status === 401) {
                 const action = {

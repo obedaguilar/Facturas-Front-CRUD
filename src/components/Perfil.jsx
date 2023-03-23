@@ -42,7 +42,7 @@ const Perfil = () => {
             redirect: 'follow'
         };
 
-        const response = await fetch("http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/user/actualizar/", requestOptions)
+        const response = await fetch("http://localhost:8080/user/actualizar/", requestOptions)
 
         const data = await response.json()
         console.log(data)
@@ -60,7 +60,7 @@ const Perfil = () => {
                 redirect: 'follow'
             };
 
-            const response = await fetch(`http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/obtener/cliente?api_token=${auth.session.api_token}&email=${auth.session.email}`, requestOptions);
+            const response = await fetch(`http://localhost:8080/obtener/cliente?api_token=${auth.session.api_token}&email=${auth.session.email}`, requestOptions);
 
             if (response.status === 401) {
                 const action = {
@@ -93,7 +93,7 @@ const Perfil = () => {
                     // headers: myHeaders,
                     redirect: 'follow'
                 };
-                const response = await fetch(`http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/stripe/obtener/subscription/?customer_email=${auth.session.email}`, requestOptions);
+                const response = await fetch(`http://localhost:8080/stripe/obtener/subscription/?customer_email=${auth.session.email}`, requestOptions);
                 if (response.status === 401) {
                     const action = {
                         type: types.logout,

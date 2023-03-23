@@ -38,7 +38,7 @@ const Login = () => {
     const handleSubmit = async (e, data) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/login/', {
+            const response = await fetch('http://localhost:8080/login/', {
                 // mode : 'no-cors', //mode no-cors evita el error de cors en el navegador pero no en el servidor de node
                 
                 method: 'POST',

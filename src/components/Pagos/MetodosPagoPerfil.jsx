@@ -28,7 +28,7 @@ const MetodosPagoPerfil = () => {
                     method: 'GET',
                     redirect: 'follow'
                 };
-                const response = await fetch(`http://iksadmin.iknesoft.in/iks-admin-back/iknesoftback/public/stripe/obtener/payment/?email=${auth.session.email}`, requestOptions)
+                const response = await fetch(`http://localhost:8080/stripe/obtener/payment/?email=${auth.session.email}`, requestOptions)
                 const result = await response.json();
                 setData(result.cards.data);
                 console.log(result.cards.data);
